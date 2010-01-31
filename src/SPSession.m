@@ -227,7 +227,7 @@ static sp_session_callbacks _callbacks = {
 
 @implementation SPSession
 
-@synthesize username=_username, password=_password, delegate=_delegate;
+@synthesize username=_username, password=_password, delegate=_delegate, session=_session;
 
 + (void)setupWithApplicationKey:(NSData *)appkey
 									cacheLocation:(NSString *)cacheDirname
@@ -268,7 +268,14 @@ static sp_session_callbacks _callbacks = {
 
 #pragma mark -
 #pragma mark Initialization and finalization
-
+-(id)init;
+{
+	if(![super init]) return nil;
+	
+	[self _initSession];
+	
+	return self;
+}
 
 - (int)_initSession {
 	sp_error error;

@@ -13,6 +13,7 @@
 @property(assign) NSString *username, *password;
 @property(readonly) SPUser *user;
 @property(assign) id delegate;
+@property (readonly) sp_session *session;
 
 + (void)setupWithApplicationKey:(NSData *)appkey
 									cacheLocation:(NSString *)cacheDirname
